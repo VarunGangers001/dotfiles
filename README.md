@@ -1,10 +1,65 @@
 # Daedalus Dotfiles
 
-Personal configuration repository for my Omarchy Linux setup.
+> *A personal repository containing everything needed to recreate my Linux workflow.*
 
-This repository contains my custom scripts, application configurations, package lists, and system tweaks so that my Linux environment can be recreated on future machines.
+---
 
-The primary goal is to make moving from **Daedalus** (current laptop) to future machines such as **Achilles** (desktop PC) simple and repeatable.
+## Welcome
+
+This repository exists for one reason:
+
+**To ensure I never have to rebuild my Linux setup from memory again.**
+
+Every script, configuration, package list and useful piece of documentation should eventually live here.
+
+The long-term goal is simple:
+
+- If Daedalus ever needs reinstalling...
+- If I build Achilles...
+- If I buy another Linux machine...
+
+...I should be able to recreate my entire workflow from this repository.
+
+This repository is written for **Future Varun** as much as it is for Present Varun.
+
+---
+
+# My Machines
+
+## Daedalus
+
+My current laptop.
+
+Primary uses:
+
+- University
+- Programming
+- Linux learning
+- Writing
+- Travel
+- General productivity
+- Creative work
+
+Daedalus is my experimentation machine where I learn, customise and improve my workflow.
+
+---
+
+## Achilles
+
+My future desktop workstation.
+
+The aim is to take everything I learn on Daedalus and build my ideal Linux workstation.
+
+Primary uses:
+
+- 4K DaVinci Resolve editing
+- Engineering
+- CAD
+- Programming
+- AI
+- Creative projects
+
+Ideally, setting up Achilles should only require cloning this repository and running the setup scripts.
 
 ---
 
@@ -12,275 +67,91 @@ The primary goal is to make moving from **Daedalus** (current laptop) to future 
 
 ```
 dotfiles/
-│
-├── bin/
-│   ├── weather-location
-│   ├── weather-icon
-│   ├── weather-status
-│   ├── weather-waybar
-│   │
-│   └── omarchy/
-│       └── omarchy-battery-monitor
-│
-├── config/
-│   ├── btop/
-│   ├── fastfetch/
-│   ├── git/
-│   ├── ghostty/
-│   ├── hypr/
-│   ├── walker/
-│   ├── waybar/
-│   └── starship.toml
-│
-├── packages/
-│   ├── pacman.txt
-│   └── flatpak.txt
-│
-├── install/
-│   ├── install.sh
-│   └── packages.sh
-│
+├── bin/            Custom scripts and terminal commands
+├── config/         Application configuration files
+├── docs/           Documentation for Future Varun
+├── install/        Installation scripts
+├── omarchy/        Omarchy-specific customisations
+├── packages/       Lists of installed applications
 └── README.md
 ```
 
 ---
 
-# Installation
+# Philosophy
 
-## 1. Install Omarchy
+Omarchy manages the operating system.
 
-Install a fresh Omarchy Linux system.
+This repository manages **my workflow**.
 
----
+Whenever I spend enough time customising something that I'd be annoyed to lose it, it should eventually end up here.
 
-## 2. Clone this repository
+The goal isn't to customise Linux for the sake of it.
 
-```bash
-git clone https://github.com/VarunGangers001/dotfiles.git ~/dotfiles
-cd ~/dotfiles
-```
+The goal is to build a system that makes everyday work easier and more enjoyable.
 
 ---
 
-## 3. Install packages
+# Quick Git Commands
 
-Run:
-
-```bash
-./install/packages.sh
-```
-
-This installs the required Pacman and Flatpak applications stored in:
-
-```
-packages/
-```
-
----
-
-## 4. Install configuration
-
-Run:
-
-```bash
-./install/install.sh
-```
-
-This will:
-
-- install custom scripts
-- create required directories
-- create symbolic links for tracked configurations
-- restore weather configuration
-- restore Omarchy custom scripts
-
----
-
-# Custom Features
-
-## Weather System
-
-A custom location-based weather system.
-
-Commands:
-
-```bash
-weather-location <city>
-```
-
-Example:
-
-```bash
-weather-location Hyderabad
-```
-
-This updates the current weather location.
-
-The system provides:
-
-- Waybar weather module
-- weather status command
-- weather icons
-- location persistence
-
-Scripts:
-
-```
-bin/weather-location
-bin/weather-status
-bin/weather-icon
-bin/weather-waybar
-```
-
----
-
-# Battery Monitor
-
-Customised Omarchy battery warning system.
-
-Location:
-
-```
-bin/omarchy/omarchy-battery-monitor
-```
-
-Features:
-
-- checks battery level automatically
-- warns when battery is low
-- integrates with Omarchy notifications
-- runs through a systemd user timer
-
-The service and timer are provided by Omarchy:
-
-```
-~/.config/systemd/user/
-
-omarchy-battery-monitor.service
-omarchy-battery-monitor.timer
-```
-
----
-
-# Configuration Management
-
-Tracked configurations are stored in:
-
-```
-config/
-```
-
-and restored using symbolic links.
-
-This means changes made in:
-
-```
-~/.config/
-```
-
-are actually changes inside this repository.
-
-Tracked applications include:
-
-- Hyprland
-- Waybar
-- Ghostty
-- Walker
-- Fastfetch
-- btop
-- Git
-- Starship
-
----
-
-# Updating The Repository
-
-After making changes:
+Go to the repository:
 
 ```bash
 cd ~/dotfiles
+```
 
+See what has changed:
+
+```bash
 git status
+```
 
+Save changes:
+
+```bash
 git add .
-
-git commit -m "Describe changes"
-
+git commit -m "Describe what changed"
 git push
 ```
 
----
-
-# Adding A New Configuration
-
-To track a new configuration:
-
-1. Copy it into `config/`
-
-Example:
+Download the latest version:
 
 ```bash
-cp -r ~/.config/example ~/dotfiles/config/
+git pull
 ```
-
-2. Add a symlink entry inside:
-
-```
-install/install.sh
-```
-
-3. Commit the changes.
 
 ---
 
-# Device Setup
+# Documentation
 
-## Daedalus
+The `docs/` folder contains guides written for Future Varun.
 
-Current laptop.
-
-Runs:
-
-- Omarchy Linux
-- Hyprland
-- custom scripts
-- tracked configurations from this repository
+| File | Purpose |
+|------|---------|
+| workflow.md | Read this first if you've forgotten how everything works. |
+| adding-things.md | How to save new scripts, configs and applications. |
+| rebuilding-a-machine.md | Complete guide for setting up Daedalus or Achilles. |
+| ideas.md | Future projects and customisation ideas. |
+| changelog.md | Major milestones in the evolution of this setup. |
 
 ---
 
-## Achilles
+# Current Goals
 
-Future desktop PC.
+Current focus:
 
-The intended setup process:
-
-1. Install Omarchy
-2. Clone this repository
-3. Run installation scripts
-4. Restore the same workflow
+- Learn Linux properly.
+- Continue customising Daedalus.
+- Keep everything important tracked in Git.
+- Gradually automate repetitive setup tasks.
+- Build a repository that will make creating Achilles quick and repeatable.
 
 ---
 
 # Notes
 
-This repository intentionally does not manage Omarchy's core configuration directly.
+This repository is a living project.
 
-Omarchy updates should remain responsible for:
+It will continue to grow as I learn more about Linux and improve my workflow.
 
-```
-~/.config/omarchy
-```
-
-while this repository manages personal customisations and additions.
-
----
-
-# Future Improvements
-
-Possible additions:
-
-- more automated setup scripts
-- NVIDIA/DaVinci Resolve setup notes
-- backup automation
-- additional systemd services
-- further Hyprland customisation
+If I've forgotten how something works, the answer should eventually be somewhere in this repository.
