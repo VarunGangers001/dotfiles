@@ -4,19 +4,22 @@ set -e
 
 echo "Installing Daedalus dotfiles..."
 
-mkdir -p ~/.local/bin
-mkdir -p ~/.config/weather
-mkdir -p ~/.local/share/omarchy/bin
+DOTFILES="$HOME/dotfiles"
 
-cp ../bin/weather-location ~/.local/bin/
-chmod +x ~/.local/bin/weather-location
+mkdir -p "$HOME/.local/bin"
+mkdir -p "$HOME/.config/weather"
 
-cp ../config/weather/location ~/.config/weather/
+echo "Installing weather scripts..."
 
-cp ../omarchy/bin/omarchy-weather-icon \
-~/.local/share/omarchy/bin/
+for script in weather-location weather-icon weather-status weather-waybar; do
+    ln -sf "$DOTFILES/bin/$script" "$HOME/.local/bin/$script"
+done
 
-cp ../omarchy/bin/omarchy-weather-status \
-~/.local/share/omarchy/bin/
+chmod +x "$DOTFILES/bin/"*
+
+echo "Installing weather configuration..."
+
+cp "$DOTFILES/config/weather/location" "$HOME/.config/weather/"
 
 echo "Done."
+
