@@ -17,6 +17,15 @@ done
 
 chmod +x "$DOTFILES/bin/"*
 
+echo "Installing Omarchy custom scripts..."
+
+mkdir -p "$HOME/.local/share/omarchy/bin"
+
+ln -sfn "$DOTFILES/bin/omarchy/omarchy-battery-monitor" \
+"$HOME/.local/share/omarchy/bin/omarchy-battery-monitor"
+
+chmod +x "$DOTFILES/bin/omarchy/omarchy-battery-monitor"
+
 echo "Installing configuration files..."
 
 mkdir -p "$HOME/.config"
