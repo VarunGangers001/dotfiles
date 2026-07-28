@@ -17,9 +17,19 @@ done
 
 chmod +x "$DOTFILES/bin/"*
 
+echo "Installing configuration files..."
+
+mkdir -p "$HOME/.config"
+
+for config in btop fastfetch git ghostty hypr omarchy walker waybar; do
+    ln -sfn "$DOTFILES/config/$config" "$HOME/.config/$config"
+done
+
+ln -sfn "$DOTFILES/config/starship.toml" "$HOME/.config/starship.toml"
+
 echo "Installing weather configuration..."
 
+mkdir -p "$HOME/.config/weather"
 cp "$DOTFILES/config/weather/location" "$HOME/.config/weather/"
 
 echo "Done."
-
