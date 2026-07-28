@@ -21,7 +21,7 @@ echo "Installing configuration files..."
 
 mkdir -p "$HOME/.config"
 
-for config in btop fastfetch git ghostty hypr omarchy walker waybar; do
+   for config in btop fastfetch git ghostty hypr walker waybar; do
     ln -sfn "$DOTFILES/config/$config" "$HOME/.config/$config"
 done
 
