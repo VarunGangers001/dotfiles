@@ -1,0 +1,41 @@
+#!/bin/bash
+
+if [[ -z "$1" ]]; then
+    echo "Usage: weather-location <city>"
+    exit 1
+fi
+
+location="$1"
+
+# Save weather location
+echo "$location" > ~/.config/weather/location
+
+# Set timezone based on city
+case "$location" in
+    Hyderabad|hyderabad)
+        timezone="Asia/Kolkata"
+        ;;
+    London|london|Lancaster|lancaster|Sheffield|sheffield)
+        timezone="Europe/London"
+        ;;
+    Tokyo|tokyo)
+        timezone="Asia/Tokyo"
+        ;;
+    New\ York|"New York"|new\ york)
+        timezone="America/New_York"
+        ;;
+    *)
+        echo "Unknown timezone for $location"
+        echo "Weather updated, but clock unchanged."
+        pkill -SIGUSR2 waybar
+        exit 0
+        ;;
+esac
+
+sudo timedatectl set-timezone "$timezone"
+
+pkill -SIGUSR2 waybar
+
+echo "Location set:"
+echo "Weather: $location"
+echo "Timezone: $timezone"
