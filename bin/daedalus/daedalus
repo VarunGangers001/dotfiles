@@ -1,0 +1,13 @@
+#!/bin/bash
+
+WIDTH=$(tput cols)
+
+if [ "$WIDTH" -ge 100 ]; then
+    cat ~/dotfiles/bin/daedalus/large.txt
+
+elif [ "$WIDTH" -ge 60 ]; then
+    cat ~/dotfiles/bin/daedalus/medium.txt
+
+else
+    cat ~/dotfiles/bin/daedalus/small.txt
+fi
