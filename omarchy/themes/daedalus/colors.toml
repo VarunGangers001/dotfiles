@@ -1,0 +1,37 @@
+# Daedalus Mission Control Theme
+
+# Accent and UI colors
+accent = "#b98a3d"
+active_border_color = "#b98a3d"
+active_tab_background = "#b98a3d"
+
+# Cursor colors
+cursor = "#e7eef5"
+
+# Primary colors
+foreground = "#e7eef5"
+background = "#08131f"
+
+# Selection colors
+selection_foreground = "#08131f"
+selection_background = "#b98a3d"
+
+# Normal colors (ANSI 0-7)
+color0 = "#233342"
+color1 = "#c94f4f"
+color2 = "#028391"
+color3 = "#d8a24a"
+color4 = "#72b8ff"
+color5 = "#6f7fd8"
+color6 = "#8cbfb8"
+color7 = "#c6d7df"
+
+# Bright colors (ANSI 8-15)
+color8 = "#31495c"
+color9 = "#e06c75"
+color10 = "#38b2ac"
+color11 = "#e6b85c"
+color12 = "#8bc7ff"
+color13 = "#9aa7ff"
+color14 = "#b7e3dd"
+color15 = "#ffffff"
