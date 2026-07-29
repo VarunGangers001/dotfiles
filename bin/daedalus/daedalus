@@ -3,11 +3,13 @@
 WIDTH=$(tput cols)
 
 if [ "$WIDTH" -ge 100 ]; then
-    cat ~/dotfiles/bin/daedalus/large.txt
+    CONFIG="config-large.jsonc"
 
 elif [ "$WIDTH" -ge 60 ]; then
-    cat ~/dotfiles/bin/daedalus/medium.txt
+    CONFIG="config-medium.jsonc"
 
 else
-    cat ~/dotfiles/bin/daedalus/small.txt
+    CONFIG="config-small.jsonc"
 fi
+
+fastfetch -c ~/.config/fastfetch/$CONFIG
