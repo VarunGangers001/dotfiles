@@ -1,0 +1,38 @@
+PRESETS = {
+    "technical": {
+        "width": 64,
+        "height": 26,
+        "resize_width": 700,
+        "blur": 5.0,
+        "contrast": 10,
+        "edge": 1.0,
+        "threshold": 58,
+    },
+    "classic": {
+        "width": 64,
+        "height": 26,
+        "resize_width": 700,
+        "blur": 3.0,
+        "contrast": 8,
+        "edge": 1.0,
+        "threshold": 45,
+    },
+    "engraved": {
+        "width": 72,
+        "height": 30,
+        "resize_width": 900,
+        "blur": 1.8,
+        "contrast": 6,
+        "edge": 1.2,
+        "threshold": 33,
+    },
+    "blueprint": {
+        "width": 68,
+        "height": 28,
+        "resize_width": 800,
+        "blur": 4.0,
+        "contrast": 12,
+        "edge": 1.0,
+        "threshold": 52,
+    },
+}
