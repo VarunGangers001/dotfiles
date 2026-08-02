@@ -2,6 +2,39 @@
 
 All notable changes to Daedalus Observation will be recorded here.
 
+# Changelog
+
+## v2.0.2 — 2026-08-02
+
+### Fixed
+
+- Correctly extract publication dates from ESA/Webb Picture of the Month pages.
+
+---
+
+## v2.0.1 — 2026-08-02
+
+### Changed
+
+- Updated the Hubble provider from the discontinued Picture of the Week feed to the new Picture of the Month feed.
+
+---
+
+## v2.0.0 — 2026-08-02
+
+### Added
+
+- NASA APOD
+- ESA/Hubble support
+- ESA/Webb support
+- Source selector
+- Automatic refresh
+- Favourite images
+- Source page links
+- Remember last selected provider
+
+---
+
 ## v1.0.0 — 2026-08-02
 
 ### Added
