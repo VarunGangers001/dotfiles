@@ -213,19 +213,32 @@ def extract_release_date(parser: MetadataParser) -> str:
     if metadata_date:
         return metadata_date[:10]
 
+    text = parser.visible_text.replace("\xa0", " ")
+
+    release_position = text.lower().find("release date")
+
+    if release_position == -1:
+        return ""
+
+    nearby_text = text[
+        release_position:release_position + 150
+    ]
+
     match = re.search(
-        r"Release date:\s*"
-        r"(\d{1,2}\s+[A-Za-z]+\s+\d{4})",
-        parser.visible_text,
-        flags=re.IGNORECASE,
+        r"(\d{1,2})\s+"
+        r"([A-Za-z]+)\s+"
+        r"(\d{4})",
+        nearby_text,
     )
 
     if not match:
         return ""
 
+    date_text = " ".join(match.groups())
+
     try:
         parsed = datetime.strptime(
-            match.group(1),
+            date_text,
             "%d %B %Y",
         )
         return parsed.strftime("%Y-%m-%d")
