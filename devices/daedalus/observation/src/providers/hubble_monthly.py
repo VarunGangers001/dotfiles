@@ -9,12 +9,12 @@ from providers.common import (
 )
 
 
-INDEX_URL = "https://esahubble.org/images/potw/"
+INDEX_URL = "https://esahubble.org/images/potm/"
 
 
 def extract_item_id(page_url: str) -> str:
     match = re.search(
-        r"/images/(potw\d+[a-z]?)/?",
+        r"/images/(potm\d+[a-z]?)/?",
         page_url,
         flags=re.IGNORECASE,
     )
@@ -30,7 +30,7 @@ def extract_item_id(page_url: str) -> str:
 def fetch_latest() -> ObservationItem:
     page_url = find_latest_entry(
         INDEX_URL,
-        r"/images/potw\d+[a-z]?/?$",
+        r"/images/potm\d+[a-z]?/?$",
     )
 
     item_id = extract_item_id(page_url)
@@ -56,7 +56,7 @@ def fetch_latest() -> ObservationItem:
 
     return ObservationItem(
         provider_id="hubble",
-        source_name="ESA/Hubble Picture of the Week",
+        source_name="ESA/Hubble Picture of the Month",
         item_id=item_id,
         title=title,
         date=extract_release_date(parser),
