@@ -1,0 +1,12 @@
+#!/bin/bash
+
+PROJECT="$HOME/dotfiles/devices/daedalus/observation"
+CACHE_DIR="$HOME/.cache/daedalus/observation"
+LOG_FILE="$CACHE_DIR/refresh.log"
+
+mkdir -p "$CACHE_DIR"
+
+# Give Wi-Fi and the desktop session time to come online.
+sleep 30
+
+python "$PROJECT/src/refresh.py" >>"$LOG_FILE" 2>&1

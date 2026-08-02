@@ -5,7 +5,7 @@
   "spacing": 0,
   "height": 26,
   "modules-left": ["custom/omarchy", "hyprland/workspaces"],
-  "modules-center": ["clock", "custom/weather", "custom/update", "custom/voxtype", "custom/screenrecording-indicator", "custom/idle-indicator", "custom/notification-silencing-indicator"],
+  "modules-center": ["custom/observation", "clock", "custom/weather", "custom/update", "custom/voxtype", "custom/screenrecording-indicator", "custom/idle-indicator", "custom/notification-silencing-indicator"],
   "modules-right": [
     "group/tray-expander",
     "bluetooth",
@@ -86,6 +86,11 @@
     "spacing": 1,
     "on-click": "omarchy-launch-wifi"
   },
+  "custom/observation": {
+  "format": "🛰︎",
+  "tooltip-format": "Today's Observation",
+  "on-click": "observation"
+},
   "battery": {
     "format": "{capacity}% {icon}",
     "format-discharging": "{icon}",
@@ -179,4 +184,8 @@
     "icon-size": 12,
     "spacing": 17
   }
+}
+  #custom-observation {
+    font-size: 16px;
+    padding: 0 6px;
 }

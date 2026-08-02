@@ -109,3 +109,8 @@ tooltip {
 #custom-voxtype.recording {
   color: #a55555;
 }
+#custom-observation {
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 17px;
+    padding: 0 6px;
+}

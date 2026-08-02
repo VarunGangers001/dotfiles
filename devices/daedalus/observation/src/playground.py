@@ -7,6 +7,7 @@ from renderers.presets import PRESETS
 
 PLAYGROUND_RENDER_PATH = CACHE_DIR / "playground-render.txt"
 PLAYGROUND_IMAGE_PATH = CACHE_DIR / "playground-source.png"
+PLAYGROUND_PLAIN_PATH = CACHE_DIR / "playground-render-plain.txt"
 
 
 def parse_arguments() -> argparse.Namespace:
@@ -35,19 +36,18 @@ def main() -> None:
     settings = PRESETS[args.preset]
 
     render_contour(
-        input_image=PREVIEW_IMAGE_PATH,
-        output_text=PLAYGROUND_RENDER_PATH,
-        working_image=PLAYGROUND_IMAGE_PATH,
-        width=settings["width"],
-        height=settings["height"],
-        resize_width=settings["resize_width"],
-        blur=settings["blur"],
-        contrast=settings["contrast"],
-        edge=settings["edge"],
-        threshold=settings["threshold"],
-    )
+    input_image=PREVIEW_IMAGE_PATH,
+    output_text=PLAYGROUND_RENDER_PATH,
+    plain_output=PLAYGROUND_PLAIN_PATH,
+    working_image=PLAYGROUND_IMAGE_PATH,
+    **settings,
+)
 
-    print(PLAYGROUND_RENDER_PATH.read_text(encoding="utf-8"))
+    print(
+        PLAYGROUND_RENDER_PATH.read_text(
+            encoding="utf-8"
+        )
+    )
 
     print("\n------------------------------------------")
     print(f"Preset:      {args.preset}")
@@ -57,11 +57,14 @@ def main() -> None:
     print(f"Contrast:    {settings['contrast']}%")
     print(f"Edge:        {settings['edge']}")
     print(f"Threshold:   {settings['threshold']}%")
+    print(f"Symbols:     {settings['symbols']}")
+    print(f"Foreground:  {settings['foreground']}")
+    print(f"Background:  {settings['background']}")
     print("------------------------------------------")
 
 
 if __name__ == "__main__":
     try:
         main()
-    except RuntimeError as error:
+    except (RuntimeError, ValueError) as error:
         print(f"Playground error: {error}")

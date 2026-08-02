@@ -7,6 +7,9 @@ PRESETS = {
         "contrast": 10,
         "edge": 1.0,
         "threshold": 58,
+        "symbols": "technical+border+diagonal",
+        "foreground": "#f6dcac",
+        "background": "#05182e",
     },
     "classic": {
         "width": 64,
@@ -16,6 +19,9 @@ PRESETS = {
         "contrast": 8,
         "edge": 1.0,
         "threshold": 45,
+        "symbols": "braille",
+        "foreground": "#faa968",
+        "background": "#05182e",
     },
     "engraved": {
         "width": 72,
@@ -25,6 +31,9 @@ PRESETS = {
         "contrast": 6,
         "edge": 1.2,
         "threshold": 33,
+        "symbols": "braille",
+        "foreground": "#faa968",
+        "background": "#05182e",
     },
     "blueprint": {
         "width": 68,
@@ -34,5 +43,8 @@ PRESETS = {
         "contrast": 12,
         "edge": 1.0,
         "threshold": 52,
+        "symbols": "technical+border",
+        "foreground": "#8cbfb8",
+        "background": "#05182e",
     },
 }

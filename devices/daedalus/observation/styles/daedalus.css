@@ -1,8 +1,88 @@
-window {
-    background: #101820;
+window.observation-window {
+    background: transparent;
+    font-family: "JetBrainsMono Nerd Font", monospace;
 }
 
-label {
-    color: #6fd3ff;
+.observation-root {
+    background-color: rgba(5, 24, 46, 0.97);
+    border: 1px solid rgba(250, 169, 104, 0.72);
+    border-radius: 18px;
+    padding: 2px;
+}
+
+.observation-header {
+    padding: 0 3px 1px 3px;
+}
+
+.header-title {
+    color: #f6dcac;
+    font-family: "JetBrainsMono Nerd Font", monospace;
     font-size: 18px;
+    font-weight: 700;
+}
+
+.renderer-name {
+    color: #faa968;
+    font-family: "JetBrainsMono Nerd Font", monospace;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.close-button {
+    min-width: 25px;
+    min-height: 25px;
+    padding: 0;
+    border: none;
+    border-radius: 999px;
+    background: transparent;
+    color: #8cbfb8;
+    font-family: "JetBrainsMono Nerd Font", monospace;
+    font-size: 18px;
+}
+
+.close-button:hover {
+    background-color: rgba(250, 169, 104, 0.15);
+    color: #faa968;
+}
+
+.preview-card {
+    padding: 1px;
+    border: 1px solid rgba(140, 191, 184, 0.25);
+    border-radius: 13px;
+    background-color: #031326;
+}
+
+.preview-card:hover {
+    border-color: rgba(250, 169, 104, 0.75);
+    background-color: #04172c;
+}
+
+.observation-art {
+    color: #faa968;
+    background: transparent;
+    font-family: "JetBrainsMono Nerd Font", monospace;
+    font-size: 10px;
+}
+
+.metadata-box {
+    padding: 1px 3px 0 3px;
+}
+
+.observation-title {
+    color: #f6dcac;
+    font-family: "JetBrainsMono Nerd Font", monospace;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.observation-date {
+    color: #8cbfb8;
+    font-family: "JetBrainsMono Nerd Font", monospace;
+    font-size: 13px;
+}
+
+.observation-source {
+    color: rgba(167, 201, 198, 0.70);
+    font-family: "JetBrainsMono Nerd Font", monospace;
+    font-size: 11px;
 }
