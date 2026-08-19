@@ -1,0 +1,7 @@
+#!/bin/bash
+
+pkill -f "observation/src/app.py" 2>/dev/null
+
+sleep 0.2
+
+observation

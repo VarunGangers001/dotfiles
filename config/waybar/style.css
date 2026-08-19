@@ -114,3 +114,24 @@ tooltip {
     font-size: 17px;
     padding: 0 6px;
 }
+
+@keyframes batteryPulse {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.35;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+#battery.critical:not(.charging) {
+    animation-name: batteryPulse;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
