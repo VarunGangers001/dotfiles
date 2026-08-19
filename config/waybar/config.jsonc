@@ -7,13 +7,14 @@
   "modules-left": ["custom/omarchy", "hyprland/workspaces"],
   "modules-center": ["custom/observation", "clock", "custom/weather", "custom/update", "custom/voxtype", "custom/screenrecording-indicator", "custom/idle-indicator", "custom/notification-silencing-indicator"],
   "modules-right": [
-    "group/tray-expander",
-    "bluetooth",
-    "network",
-    "pulseaudio",
-    "cpu",
-    "battery"
-  ],
+  "group/tray-expander",
+  "bluetooth",
+  "network",
+  "custom/network-health",
+  "pulseaudio",
+  "cpu",
+  "battery"
+],
   "hyprland/workspaces": {
     "on-click": "activate",
     "format": "{icon}",
@@ -72,6 +73,12 @@
   "interval": 60,
   "tooltip": false,
 "on-click": "notify-send -u low \"$(omarchy-weather-status)\""
+},
+  "custom/network-health": {
+  "exec": "network-health",
+  "return-type": "json",
+  "interval": 10,
+  "tooltip": true
 },
   "network": {
     "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],

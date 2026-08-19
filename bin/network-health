@@ -1,0 +1,18 @@
+#!/bin/bash
+
+INTERFACE="wlan0"
+
+# Not connected to Wi-Fi → show nothing.
+if ! iwctl station "$INTERFACE" show 2>/dev/null | grep -q "Connected network"; then
+    printf '{"text":"","tooltip":"Wi-Fi disconnected","class":"disconnected"}\n'
+    exit 0
+fi
+
+# Connected to Wi-Fi and internet reachable → show nothing.
+if ping -c 1 -W 1 1.1.1.1 >/dev/null 2>&1; then
+    printf '{"text":"","tooltip":"Internet connected","class":"online"}\n'
+    exit 0
+fi
+
+# Connected to Wi-Fi, but no internet.
+printf '{"text":"!","tooltip":"Wi-Fi connected — no internet","class":"offline"}\n'
